@@ -1,7 +1,7 @@
 <?php
 // Validasi reCAPTCHA
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $secretKey = "6Ld2tJoqAAAAACCziy3h2jv1TOSnP-niOMQy6PV5"; // Ganti dengan Secret Key Anda
+    $secretKey = "6Lc-C5sqAAAAAGzLvGUCnf00ZxPh-UsQrwCsP1rq"; // Ganti dengan Secret Key Anda
     $captchaResponse = $_POST['g-recaptcha-response'];
 
     if (!$captchaResponse) {
@@ -143,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="captcha-container">
       <h2>Verifikasi untuk Mengakses Turnamen</h2>
       <form action="" method="POST">
-        <div class="g-recaptcha" data-sitekey="6Ld2tJoqAAAAAEUMmuVRIvV3YhE3nIdthc9_ZFis"></div><br>
+        <div class="g-recaptcha" data-sitekey="6Lc-C5sqAAAAAAgBoVPWay3nRv3bnHv4VFXZe5nN"></div><br>
         <button type="submit">Lanjutkan</button>
       </form>
     </div>
