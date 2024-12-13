@@ -1,28 +1,4 @@
-<?php
-// Validasi reCAPTCHA
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $secretKey = "6Lc-C5sqAAAAAGzLvGUCnf00ZxPh-UsQrwCsP1rq"; // Ganti dengan Secret Key Anda
-    $captchaResponse = $_POST['g-recaptcha-response'];
 
-    if (!$captchaResponse) {
-        die("Captcha belum diisi. Silakan kembali dan coba lagi.");
-    }
-
-    $verifyUrl = "https://www.google.com/recaptcha/api/siteverify";
-    $response = file_get_contents($verifyUrl . "?secret=" . $secretKey . "&response=" . $captchaResponse);
-    $responseKeys = json_decode($response, true);
-
-    if ($responseKeys["success"]) {
-        // CAPTCHA valid, tampilkan konten turnamen
-        $showTournament = true;
-    } else {
-        // CAPTCHA gagal, tampilkan pesan kesalahan
-        $showTournament = false;
-    }
-} else {
-    $showTournament = false;
-}
-?>
 
 <!DOCTYPE html>
 <html lang="id">
@@ -139,15 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 
-  <?php if (!$showTournament): ?>
-    <div class="captcha-container">
-      <h2>Verifikasi untuk Mengakses Turnamen</h2>
-      <form action="" method="POST">
-        <div class="g-recaptcha" data-sitekey="6Lc-C5sqAAAAAAgBoVPWay3nRv3bnHv4VFXZe5nN"></div><br>
-        <button type="submit">Lanjutkan</button>
-      </form>
-    </div>
-  <?php else: ?>
+ 
     <header>
       
     </header>
